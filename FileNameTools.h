@@ -8,7 +8,16 @@
 返回值：
     dir路径结果的长度，例如，本例中为11。
 */
-int GetDir(char *whole,char* dir);
+int GetDir(char *whole,char* dir)
+{
+   char *index;
+   int len;                      //储存长度
+   index=strrchr(whole,'/');     //查找'/'在字符串whole中从后面开始的第一次出现的位置
+   len=index-whole;
+   strncpy(dir,whole,len);       //将字符串whole中前len个字符拷贝到字符串dir中
+   dir[len]='\0';                //设定字符串结束符
+   return len;                   //返回长度
+};
 
 
 /*
